@@ -55,11 +55,11 @@ let handler = async (m, { conn }) => {
   let masss = more.repeat(850)
 try {
     let wimg = await fetch('https://pastebin.com/raw/Bu8esjPA')
-    let imgw = await conn.profilePictureUrl(conn.user.jid, 'image').catch(_ => './multimedia/avatar_contact.png')
+    let imgw = await conn.profilePictureUrl(conn.user.jid, 'image').catch(_ => './multimedia/imagenes/avatar_contact.png')
     var wjson = await wimg.json()
     var pweb = wjson.nk_media || imgw
     } catch (e) {
-    var pweb = await conn.profilePictureUrl(conn.user.jid, 'image').catch(_ => './multimedia/avatar_contact.png')
+    var pweb = await conn.profilePictureUrl(conn.user.jid, 'image').catch(_ => './multimedia/imagenes/avatar_contact.png')
     }
   let infotext = `
 *~》INFORMACIÓN《~*
