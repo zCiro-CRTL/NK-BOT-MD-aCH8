@@ -20,16 +20,16 @@
         "MD",
         "baileys-md"
     ],
-    "homepage": "https://github.com/NeKosmic/NK-BOT-MD",
+    "homepage": "",
     "author": {
         "name": "Matt_Mdz"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/NeKosmic/NK-BOT-MD"
+        "url": ""
     },
     "bugs": {
-        "url": "https://github.com/NeKosmic/NK-BOT-MD/issues"
+        "url": ""
     },
     "license": "GNU",
     "dependencies": {
