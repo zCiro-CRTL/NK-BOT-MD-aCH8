@@ -4,9 +4,11 @@ import uploadImage from '../lib/uploadImage.js'
 import { webp2png } from '../lib/webp2mp4.js'
 import moment from 'moment-timezone'
 
-let handler = async (m, { conn, args, usedPrefix, command, groupMetadata }) => {
+let handler = async (m, { conn, args, text, command, groupMetadata }) => {
 	let sname = await conn.getName(m.sender)
 	let sfecha = moment().tz(Intl.DateTimeFormat().resolvedOptions().timeZone).format('DD/MM/YY HH:mm:ss')
+	let name = await conn.getName(m.sender)
+	m.reply(`_Procesando, ${name} por favor espere..._`)
 	let stiker = false
   try {
     let q = m.quoted ? m.quoted : m
@@ -14,7 +16,7 @@ let handler = async (m, { conn, args, usedPrefix, command, groupMetadata }) => {
     if (/webp|image|video/g.test(mime)) {
       if (/video/g.test(mime)) if ((q.msg || q).seconds > 11) return m.reply(`*[ ! ] Máxima duración de vídeo son 10 segundos!*`)
       let img = await q.download?.()
-      if (!img) return m.reply(`*[ ! ] Por favor Envie o Responda un video o una imagen usando el comando ${usedPrefix + command}*\n_NOTA : duracion de video 1 a 10 segundos máximo_ ✓`)
+      if (!img) return m.reply(`*[ ! ] Por favor Envie o Responda un video o una imagen usando el comando ${Prefijo + command}*\n_NOTA : duracion de video 1 a 10 segundos máximo_ ✓`)
       let out
       try {
         stiker = await sticker(img, false, ``, `🧰 ${sname ? sname : Propietario}\n\n⚙️ ${groupMetadata.subject ? groupMetadata.subject : "@NeKosmic"}\n\n🤖 ${NombreDelBot}\n\n⌚ ${sfecha}\n`)
