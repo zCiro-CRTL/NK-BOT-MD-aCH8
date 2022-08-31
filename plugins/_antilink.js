@@ -15,10 +15,12 @@ export async function before(m, { conn, isAdmin, isBotAdmin, usedPrefix }) {
             const linkThisGroup = `https://chat.whatsapp.com/${await this.groupInviteCode(m.chat)}`
             if (m.text.includes(linkThisGroup)) return m.reply('[ ! ] Aea causa acabas de enviar un enlace, lo weno es que el enlace detectado es de este grupo owo')
         }
-        await conn.sendButton(m.chat, `*[ ! ] Enlace detectado [ ! ]*\n`, `${isBotAdmin ? '' : 'Por suerte no soy acmin, asi que no puedo hacer nada :v'}`, NombreDelBot, ['[ DESACTIVAR ANTILINK ]', usedPrefix+'apagar antilink'], m)
-        if (isBotAdmin && bot.restrict) {
+        if (!isBotAdmin) return conn.sendButton(m.chat, `*[ ! ] Enlace detectado [ ! ]*\n`, `Por suerte no soy acmin, asi que no puedo hacer nada :v`, NombreDelBot, ['[ DESACTIVAR ANTILINK ]', usedPrefix+'apagar antilink'], m)
+        await  conn.sendMessage(m.chat, { text: `*[ ! ] Enlace detectado [ ! ]*\n_Ahora si k_gaste @${m.sender.split("@")[0]} Adios..._\n`, mentions: [m.sender] }, { quoted: m }) 
+        conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+        /**if (isBotAdmin && bot.restrict) {   
             await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-        } else if (!bot.restrict) return m.reply('[ ! ] Para realizar acciones de eliminación, mi dueño tiene que encender el modo restringido!')
+        } else if (!bot.restrict) return m.reply('[ ! ] Para realizar acciones de eliminación, mi dueño tiene que encender el modo restringido!')**/
     }
     return !0
 }
