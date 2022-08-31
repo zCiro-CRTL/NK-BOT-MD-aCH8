@@ -63,6 +63,9 @@ function start(file) {
   p.on('exit', (_, code) => {
     isRunning = false
     console.error(chalk.bgRed('\n\n[!] Salió del código : '), chalk.bgWhite(code+'\n'))
+    p.process.kill() 
+    isRunning = false
+    start.apply(this, arguments)
     if (code === 0) return
     watchFile(args[0], () => {
       unwatchFile(args[0])
