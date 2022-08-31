@@ -122,7 +122,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname, command }) => {
 image: {url: pweb },
 caption: text.trim(),
 footer: cotext+NombreDelBot,
-buttons: [{buttonId: _p+`apoyo`, buttonText: {displayText: "[ APOYO ]"}, type: 1}, {buttonId: _p+`creador`, buttonText: {displayText: "[ CREADOR ]",}, type: 1}, {buttonId: _p+`informacion`, buttonText: {displayText: "[ INFORMACION ]"}, type: 1}],
+buttons: [{buttonId: Prefijo+`apoyo`, buttonText: {displayText: "[ APOYO ]"}, type: 1}, {buttonId: Prefijo+`creador`, buttonText: {displayText: "[ CREADOR ]",}, type: 1}, {buttonId: Prefijo+`informacion`, buttonText: {displayText: "[ INFORMACION ]"}, type: 1}],
 headerType: 4,
 ...{ contextInfo: { mentionedJid: [m.sender], externalAdReply: { thumbnail: fs.readFileSync('./multimedia/imagenes/logo.jpg'), sourceUrl: 'https://github.com/NeKosmic/Quantum-Bot/fork?rgh-fork=true' }}}
 }, { quoted: m }) 
