@@ -2,7 +2,6 @@
 <img src="https://giffiles.alphacoders.com/152/15268.gif" width="400" height="230"/>
 </p>
 <P align="center">
-[ Sexy_Quien_Lo_Lea_UwU ]
 <br>
 <p align="center">
 <a href="#"><img title="WhatsApp-Bot-MD" src="https://img.shields.io/badge/-WHATSAPP--BOT--MD-green?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
@@ -23,6 +22,7 @@
 | Anti-Estranjeros|✔️|
 | Modo Publico/Privado|✔️|
 | Descarga de música/videos|✔️|
+| Más funciones en adelante|♻️|
 
 ## Instalacion
 Para nuevos desde cero en termux:
