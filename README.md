@@ -7,7 +7,7 @@
 <a href="#"><img title="WhatsApp-Bot-MD" src="https://img.shields.io/badge/-WHATSAPP--BOT--MD-green?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
 </p>
 <p align="center">
-<a href="https://github.com/NeKosmic"><img title="Autor" src="https://img.shields.io/badge/Autor-NeKosmic-orange?style=for-the-badge&logo=github"></a>
+<a href="https://tinyurl.com/2p9kb7yd"><img title="Autor" src="https://img.shields.io/badge/Autor-Matt-M-orange?style=for-the-badge&logo=github"></a>
 </p>
 </details>
 </p>
@@ -42,7 +42,7 @@ Para nuevos desde cero en termux:
 ```
 ## Despues de tener todos los packs instalados en termux solo usen estos comandos para comenzar
 ```bash
-> git clone https://github.com/NeKosmic/NK-BOT-MD 
+> git clone [URL_DEL_REPOSITORIO_ACTUAL] 
 > cd NK-BOT-MD
 > yarn
 > npm start
