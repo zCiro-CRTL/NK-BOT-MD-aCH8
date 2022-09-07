@@ -61,7 +61,7 @@ if (!opts['test']) {
       db.data ? db.write() : Promise.reject('db.data es nulo'),
       (opts['autocleartmp'] || opts['cleartmp']) ? clearTmp() : Promise.resolve()
     ])
-    Connection.store.writeToFile(Connection.storeFile)
+    /*Connection.store.writeToFile(Connection.storeFile)*/
   }, 60 * 1000)
 }
 if (opts['server']) (await import('./server.js')).default(conn, PORT)
