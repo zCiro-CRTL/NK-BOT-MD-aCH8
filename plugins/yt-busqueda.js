@@ -1,7 +1,7 @@
 /**
 [ By @NeKosmic || https://github.com/NeKosmic/ ]
 **/
-let handler = async (m, { text, command }) => {
+let handler = async (m, { conn, text, command }) => {
 	if (!text) return m.reply(`Que desea buscar en Youtube?, Ejemplo de uso: \n\n${Prefijo + command} cuanto es 1 + 1`)
 	let name = await conn.getName(m.sender)
 	let mcarga = m.reply(`_Buscando, ${name} por favor espere..._`)
