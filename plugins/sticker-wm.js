@@ -50,6 +50,7 @@ let handler = async (m, { conn, args, text, command, groupMetadata }) => {
 handler.help = ['wm [multimedia/url]']
 handler.tags = ['conversor', 'herramienta']
 handler.command = /^(wm|stickerwm|swm|stickergifwm|sgifwm)$/i
+handler.limit = true
 
 export default handler
 

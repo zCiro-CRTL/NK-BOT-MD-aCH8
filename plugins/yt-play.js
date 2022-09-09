@@ -26,5 +26,6 @@ m.reply(`Ocurrio un error, por favor use el comando:\n\n${Prefijo}audio ${text}\
 handler.help = ['play <texto>']
 handler.tags = ['servicio']
 handler.command = /^play$/i
+handler.limit = true
 
 export default handler

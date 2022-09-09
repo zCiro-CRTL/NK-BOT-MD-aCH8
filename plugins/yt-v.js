@@ -17,5 +17,6 @@ conn.sendMessage(m.chat, { video: {url: apiytdl.descarga}, fileName: `${apiytdl.
 handler.help = ['ytv <link>']
 handler.tags = ['servicio']
 handler.command = /^(ytv)$/i
+handler.limit = true
 
 export default handler

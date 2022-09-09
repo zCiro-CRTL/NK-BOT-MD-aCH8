@@ -21,4 +21,5 @@ let handler = async (m, { conn, args }) => {
 }
 
 handler.command = /^(ytvbochi)$/i
+
 export default handler

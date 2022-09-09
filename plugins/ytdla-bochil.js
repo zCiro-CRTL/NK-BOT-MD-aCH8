@@ -20,4 +20,5 @@ let handler = async (m, { conn, args }) => {
 }
 
 handler.command = /^(ytabochi)$/i
+
 export default handler

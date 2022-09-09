@@ -45,5 +45,6 @@ let handler = async (m, { conn, text, command }) => {
 handler.help = ['robar <paquete>|<autor>']
 handler.tags = ['herramienta']
 handler.command = /^(robar)$/i
+handler.limit = true
 
 export default handler

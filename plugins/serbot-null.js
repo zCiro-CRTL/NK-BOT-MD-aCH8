@@ -70,6 +70,6 @@ handler.tags = ['esclabot']
 handler.command = /^(serbot|rentbot|esclabot|jadibot)$/i
 
 handler.disabled = false //true
-handler.limit = true
+handler.limit = 5 //:v
 
 export default handler

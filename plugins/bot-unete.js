@@ -16,6 +16,7 @@ let handler = async (m, { conn, text, isOwner }) => {
 handler.help = ['unete <Enlace de grupo>']
 handler.tags = ['premium', 'propietario']
 handler.command = /^(unete|entrabot|join)$/i
+handler.limit = 10
 handler.premium = false
 
 export default handler

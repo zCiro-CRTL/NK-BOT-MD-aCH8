@@ -31,5 +31,6 @@ reacMoji(m.chat, conn, '📥', m)
 handler.help = ['play2 <texto>']
 handler.tags = ['busqueda']
 handler.command = /^(play2)$/i
+handler.limit = true
 
 export default handler

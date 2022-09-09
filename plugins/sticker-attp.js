@@ -14,6 +14,7 @@ handler.help = ['attp <texto>']
 handler.tags = ['conversor']
 
 handler.command = /^attp$/i
+handler.limit = true
 
 export default handler
 

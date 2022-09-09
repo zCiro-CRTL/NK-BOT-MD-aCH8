@@ -9,7 +9,6 @@ let handler = async (m, { conn, args, isAdmin }) => {
     if (!groupMetadata) throw 'groupMetadata no esta definido :/'
     if (!('participants' in groupMetadata)) throw 'participants no esta definido :('
     let me = groupMetadata.participants.find(user => areJidsSameUser(user.id, conn.user.id))
-    console.log(me)
     if (!me) return m.reply('No estoy en ese grupo :v')
     if (!me.admin) return global.dfail('botAdmin', m, conn)
     if (!isAdmin) return global.dfail('admin', m, conn)
@@ -20,5 +19,6 @@ let handler = async (m, { conn, args, isAdmin }) => {
 handler.help = ['gplink']
 handler.tags = ['grupos']
 handler.command = /^(gplink|linkgp|grouplink|linkgroup)$/i
+handler.limit = true
 
 export default handler

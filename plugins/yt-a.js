@@ -18,5 +18,6 @@ conn.sendMessage(m.chat, { audio: { url: apiytdl.descarga }, contextInfo:{"exter
 handler.help = ['yta <link>']
 handler.tags = ['servicio']
 handler.command = /^(yta)$/i
+handler.limit = true
 
 export default handler

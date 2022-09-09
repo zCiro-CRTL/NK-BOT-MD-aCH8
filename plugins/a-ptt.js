@@ -16,6 +16,6 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
 
 handler.help = ['aptt']
 handler.tags = ['conversor']
-handler.command = /^a(vn|(ptt)?)$/i
+handler.command = /^(avn|aptt|tovn|toptt)$/i
 
 export default handler

@@ -21,7 +21,7 @@ handler.help = ['telesticker <buscar>', 'linesticker <buscar>']
 handler.tags = ['conversor']
 handler.command = /^(telesticker|linesticker)$/i
 
-handler.limit = true
+handler.limit = 5
 
 export default handler
 

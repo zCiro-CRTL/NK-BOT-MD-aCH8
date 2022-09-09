@@ -3,7 +3,7 @@
 **/
 let handler = async (m, { conn, command, text, args }) => {
 	if (!text) return m.reply(`Que desea descargar de Youtube?, Ejemplo de uso: \n\n${Prefijo + command} https://youtu.be/cNgyuHtBBW8`)
-	if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply('*[ ! ] Link inválido*\n_Por favor, use un link de YouTube_\n')
+	if(!isUrl(args[0]) && !args[0].includes('youtu')) return m.reply('*[ ! ] Link inválido*\n_Por favor, use un link de YouTube_\n')
 	let name = await conn.getName(m.sender)
 	let mcarga = m.reply(`_Procesando, ${name} por favor espere..._`)
 	await mcarga
@@ -17,5 +17,6 @@ let handler = async (m, { conn, command, text, args }) => {
 handler.help = ['ytmp4 <link>']
 handler.tags = ['servicio']
 handler.command = /^(ytmp4)$/i
+handler.limit = true
 
 export default handler

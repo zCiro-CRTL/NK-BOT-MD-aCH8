@@ -8,7 +8,8 @@ let handler = async (m, { conn, args, text, command, groupMetadata }) => {
 	let sname = await conn.getName(m.sender)
 	let sfecha = moment().tz(Intl.DateTimeFormat().resolvedOptions().timeZone).format('DD/MM/YY HH:mm:ss')
 	let name = await conn.getName(m.sender)
-	m.reply(`_Procesando, ${name} por favor espere..._`)
+	const msj = m.reply(`_Procesando, ${name} por favor espere..._`)
+	await msj
 	let stiker = false
   try {
     let q = m.quoted ? m.quoted : m

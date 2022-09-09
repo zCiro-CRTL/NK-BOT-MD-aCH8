@@ -532,8 +532,8 @@ let sections = [{
       break
     case 'chatbot': case 'simi': {
       if (m.isGroup) {
-        if (!(isAdmin || isOwner)) {
-          global.dfail('admin', m, conn)
+        if (!isOwner) {
+        global.dfail('owner', m, conn)
           throw false
         }
       }
@@ -541,15 +541,16 @@ let sections = [{
       }
       break
     default:
-      if (!/[01]/.test(command)) return await conn.sendMessage(m.chat, { text: '┗⊱ Aqui tiene la lista de opciones :3', footer: '\n'+NombreDelBot, title: `\n┏━━⊱「 ${uwu} ${name}! 」`, buttonText: " Seleccione aqui ✓ ", sections }, { quoted: {key:{fromMe:!1,participant:`0@s.whatsapp.net`,...(m.chat?{remoteJid:"17608914335@s.whatsapp.net"}:{})},message:{"productMessage":{"product":{"productImage":{"mimetype":"image/jpeg","jpegThumbnail":fs.readFileSync('./multimedia/imagenes/logo.jpg')},"title":Propietario,"description":"[ NK-BOT ]","currencyCode":"PEN","priceAmount1000":"18000","retailerId":"Ghost","productImageCount":1},"businessOwnerJid":`0@s.whatsapp.net`}}} })
+      if (!/[01]/.test(command)) return await conn.sendMessage(m.chat, { text: '┗⊱ Aqui tiene la lista de opciones :3', footer: '\n'+NombreDelBot, title: `\n┏━━⊱「 ${uwu} ${name}! 」`, buttonText: " Seleccione aqui ✓ ", sections }, { quoted: {key:{fromMe:!1,participant:`0@s.whatsapp.net`,...(m.chat?{remoteJid:"17608914335@s.whatsapp.net"}:{})},message:{"productMessage":{"product":{"productImage":{"mimetype":"image/jpeg","jpegThumbnail":fs.readFileSync('./multimedia/imagenes/mylogo.jpg')},"title":Propietario,"description":"[ NK-BOT ]","currencyCode":"PEN","priceAmount1000":"18000","retailerId":"Ghost","productImageCount":1},"businessOwnerJid":`0@s.whatsapp.net`}}} })
       throw false
   }
-  await conn.sendMessage(m.chat, { text: `\n@${etiqueta.replace(/@.+/, '')} ${isEnable ? 'activó' : 'desactivó'} *${type}* exitosamente ${isAll ? 'para este bot' : isUser ? '' : 'para este chat'}\n`, mentions: [m.sender] }, {ephemeralExpiration: 24*3600,quoted: {key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${isEnable ? '[✓]' : '[X]'}`,jpegThumbnail: null }}}})
+  await conn.sendMessage(m.chat, { text: `\n@${etiqueta.replace(/@.+/, '')} ${isEnable ? 'activó' : 'desactivó'} *${type}* exitosamente ${isAll ? 'para este bot' : isUser ? '' : 'para este chat'}\n`, mentions: [m.sender] }, {ephemeralExpiration: 24*3600,quoted: {key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${isEnable ? '[✓]' : '[X]'}`,jpegThumbnail: fs.readFileSync('./multimedia/imagenes/mylogo.jpg') }}}})
   reacMoji(m.chat, conn, '✅', m)
 }
 
 handler.help = ['encender', 'apagar'].map(v => v + ' <opción>')
 handler.tags = ['grupos', 'propietario']
 handler.command = /^((encender|apagar)|[01])$/i
+handler.limit = true
 
 export default handler
