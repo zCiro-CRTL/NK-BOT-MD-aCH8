@@ -7,6 +7,7 @@ let handler = async (m, { conn, text, command }) => {
 	let mcarga = m.reply(`_Buscando, ${name} por favor espere..._`)
 	await mcarga
 	let ytstext = encodeURIComponent(text)
+try {
 	let myapiyts = await fetchJson(`https://latam-api.vercel.app/api/yts?apikey=${MyApiKey}&q=${ytstext}`)
 	let teks = '*[ > ] Resultados en Youtube para:* _'+text+'_\n\n'
 	let no = 1
@@ -14,6 +15,9 @@ let handler = async (m, { conn, text, command }) => {
 		teks += `🔖 Titulo: ${i.titulo}\n🧬 ID: ${i.id}\n⛓️ URL: ${i.url}\n🗜️ Tipo: ${i.tipo}\n🖼️ Miniatura: ${i.imagen}\n⌚ Duracion: ${i.duracion}\n📜 Descripción: ${i.descripcion}\n📆 Fecha de subida: ${i.f_carga}\n👀 Vistas: ${i.vistas}\n||\n⚡Autor: ${i.autor}\n📺 Canal: ${i.canal}\n\n*——————————*\n\n`
 	}
 m.reply(teks)
+} catch (e) {
+m.reply(`[ ! ] Error, vuelva a intentarlo mas tarde...`)
+}
 }
 
 handler.help = ['ytbuscar <texto>']

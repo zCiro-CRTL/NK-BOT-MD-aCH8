@@ -8,7 +8,7 @@ let handler = async (m, { conn, text }) => {
     if (!who) return m.reply('[ ! ] Por favor etiquete al usuario que desea desbanear')
     let users = db.data.users
     users[who].banned = false
-    conn.reply(m.chat, `Usuario desbaneado ✓`, m)
+    conn.reply(m.chat, `Usuario desbaneado, ${who} puede volver a usar al bot [✓]`, m)
 }
 
 handler.help = ['desbanear @usuario']

@@ -3,7 +3,11 @@
 **/
 let handler = async (m, { conn, command, text }) => {
 	if (!text) return m.reply(`Que desea buscar en Youtube?, Ejemplo de uso: \n\n${Prefijo + command} ideas en 5 minutos`)
+	let name = await conn.getName(m.sender)
+	let mcarga = m.reply(`_Procesando, ${name} por favor espere..._`)
+	await mcarga
 	let playtext = encodeURIComponent(text)
+try {
 	let busqueda = await fetchJson(`https://latam-api.vercel.app/api/yts?apikey=${MyApiKey}&q=${playtext}`)
 	let mynum = pickRandom([0, 1, 2])
 	let datayt = busqueda.resultados[mynum]
@@ -26,6 +30,9 @@ headerType: 4
 }
 await conn.sendMessage(m.chat, playboton, { quoted: m })
 reacMoji(m.chat, conn, '📥', m)
+} catch (e) {
+m.reply(`[ ! ] Error, vuelva a intentarlo mas tarde...`)
+}
 }
 
 handler.help = ['play2 <texto>']

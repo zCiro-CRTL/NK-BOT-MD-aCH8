@@ -21,8 +21,7 @@ let handler = async (m, { text }) => {
 }
 handler.help = ['fetch']
 handler.tags = ['herramienta']
-handler.alias = ['get', 'fetch']
-handler.command = /^(fetch|get)$/i
+handler.command = /^(fetch)$/i
 handler.limit = true
 
 export default handler

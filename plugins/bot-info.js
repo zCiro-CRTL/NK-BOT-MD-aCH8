@@ -74,18 +74,18 @@ ${masss}
 ➪ *Grupos abandonados* : _${groupsIn.length - groupsIn.length}_
 ➪ *Chats personales* : _${chats.length - groupsIn.length}_
 ➪ *Total de chats* : _${chats.length}_
-➪ *Menu hits* : _${menu_hit.length}_
+➪ *Hits de hoy* : _${global.hit_cmd.length}_
 ➪ *Version del bot* : _${BotVersion}_
 ➪ *Wa-web Api* : _https://github.com/adiwajshing/Baileys_
 ➪ *Sc - Github* : _https://github.com/NeKosmic/NK-BOT-MD_
 ➪ *Total de plugins* : _${Object.keys(plugins).length}_
-➪ *Velocidad de procesamiento* : _${Math.round(speed)}ms..._
-➪ *Velocidad de conexion* : _${latensi.toFixed(4)} s..._
-➪ *RAM: _${format(totalmem() - freemem())} Restantes De ${format(totalmem())}_*
-➪ *Plataforma : _${platform()}_*
-➪ *Base OS : _${type()}_*
-➪ *Arquitectura : _${arch()}_*
-➪ *Host : _${hostname()}_*
+➪ *Velocidad de procesamiento* : _${speed} s..._
+➪ *Velocidad de conexion* : _${latensi.toFixed(4)}ms..._
+➪ *RAM:* _${format(totalmem() - freemem())} Restantes De ${format(totalmem())}_
+➪ *Plataforma* : _${platform()}_
+➪ *Base OS* : _${type()}_
+➪ *Arquitectura* : _${arch()}_
+➪ *Host* : _${hostname()}_
 
 ➫ _Consumó de memoria :_
 ${'```' + Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v => v.length)), ' ')}: ${format(used[key])}`).join('\n') + '```'}
@@ -104,16 +104,3 @@ handler.tags = ['casual']
 handler.command = /^(informacion|infobot|ping|speed|info|alive|perfil)$/i
 
 export default handler
-
-function timeString(seconds) {
-	seconds = Number(seconds);
-	var d = Math.floor(seconds / (3600 * 24));
-	var h = Math.floor(seconds % (3600 * 24) / 3600);
-	var m = Math.floor(seconds % 3600 / 60);
-	var s = Math.floor(seconds % 60);
-	var dDisplay = d > 0 ? d + (d == 1 ? " Dia " : " Dias ") : "";
-	var hDisplay = h > 0 ? h + (h == 1 ? " Hora " : " Horas ") : "";
-	var mDisplay = m > 0 ? m + (m == 1 ? " Minuto " : " Minutos ") : "";
-	var sDisplay = s > 0 ? s + (s == 1 ? " Segundo " : " Segundos ") : "";
-	return dDisplay + hDisplay + mDisplay + sDisplay;
-}

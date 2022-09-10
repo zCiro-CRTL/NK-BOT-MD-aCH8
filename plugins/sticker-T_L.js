@@ -8,7 +8,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     const json = await (isTele ? stickerTelegram : stickerLine)(args[0])
     m.reply(`
 *Resultados encontrados para ~${args[0]}~, total:* ${(json[0]?.stickers || json).length}
-_Enviando stickers_
+_Enviando stickers..._
 `.trim())
     for (let data of (json[0]?.stickers || json)) {
         const stiker = await sticker(false, data.sticker || data, ``, `\n< ${NombreDelBot} >\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[ NeKosmic ]`)
@@ -19,7 +19,7 @@ _Enviando stickers_
 }
 handler.help = ['telesticker <buscar>', 'linesticker <buscar>']
 handler.tags = ['conversor']
-handler.command = /^(telesticker|linesticker)$/i
+handler.command = /^(telesticker)|(linesticker)$/i
 
 handler.limit = 5
 

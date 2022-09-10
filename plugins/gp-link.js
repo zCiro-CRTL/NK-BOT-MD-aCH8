@@ -13,7 +13,7 @@ let handler = async (m, { conn, args, isAdmin }) => {
     if (!me.admin) return global.dfail('botAdmin', m, conn)
     if (!isAdmin) return global.dfail('admin', m, conn)
     let linkgc = await conn.groupInviteCode(group)
-    await conn.sendMessage(m.chat, {text: `\n🪀  https://chat.whatsapp.com/${linkgc}\n`, matchedText: `https://chat.whatsapp.com/`+linkgc, description: groupMetadata.desc, title: groupMetadata.subject, previewType: "NONE", jpegThumbnail: fs.readFileSync('./multimedia/imagenes/logo.jpg'), inviteLinkGroupType: "DEFAULT" }, { quoted: m })
+    conn.relayMessage(m.chat,{extendedTextMessage:{text:`\n🪀  https://chat.whatsapp.com/${linkgc}\n`,contextInfo:{mentionedJid:[m.sender],externalAdReply:{mediaType:'VIDEO',mediaUrl:null,title:groupMetadata.subject,body:null,thumbnail:fs.readFileSync('./multimedia/imagenes/logo.jpg'),sourceUrl:`https://chat.whatsapp.com/`+linkgc}}}},{})
 }
 
 handler.help = ['gplink']

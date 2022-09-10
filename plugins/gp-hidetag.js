@@ -14,7 +14,7 @@ let handler = async (m, { conn, text, participants }) => {
   let htextos = `${text ? text : "ˢᵉˣʸ ᴱˡ ᑫᵘᵉ ᴸᵒ ᴸᵉᵃ ⁷ʷ⁷"}`
 if ((isMedia && quoted.mtype === 'imageMessage') && htextos) {
 var mediax = await quoted.download?.()
-conn.sendMessage(m.chat, { image: mediax, mentions: users, caption: htextos }, {quoted: m })
+conn.sendMessage(m.chat, { image: mediax, caption: htextos ,...{contextInfo:{mentionedJid:users,externalAdReply:{thumbnail:fs.readFileSync('./multimedia/imagenes/logo.jpg'),sourceUrl:redes[Math.floor(Math.random() * redes.length)]}}}}, {quoted: m })
 } else if ((isMedia && quoted.mtype === 'videoMessage') && htextos) {
 var mediax = await quoted.download?.()
 conn.sendMessage(m.chat, { video: mediax, mentions: users, mimetype: 'video/mp4', caption: htextos })
@@ -25,7 +25,8 @@ conn.sendMessage(m.chat, { audio: mediax, ...{ contextInfo: { mentionedJid: user
 var mediax = await quoted.download?.()
 conn.sendMessage(m.chat, {sticker: mediax, ...{ contextInfo: { mentionedJid: users, externalAdReply: { body: htextos, thumbnail: fs.readFileSync('./multimedia/imagenes/logo.jpg'), sourceUrl: redes[Math.floor(Math.random() * redes.length)] }}} })
 } else {
-await conn.sendMessage(m.chat, { text : `${masss}\n${htextos}\n`, mentions: users })
+await conn.relayMessage(m.chat, {extendedTextMessage:{text: `${masss}\n${htextos}\n`, ...{ contextInfo: { mentionedJid: users, externalAdReply: { thumbnail: fs.readFileSync('./multimedia/imagenes/logo.jpg'), sourceUrl: redes[Math.floor(Math.random() * redes.length)] }}}
+}}, {})
 }
 }
 

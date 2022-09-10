@@ -26,7 +26,6 @@ let tags = {
   'rpg': '_RPG GAMES :_',
   '': '_SIN CATEGORÍA :_',
 }
-global.menu_hit = []
 let handler = async (m, { conn, usedPrefix: _p, __dirname, command }) => {
 	try {
     let wimg = await fetch('https://pastebin.com/raw/GZ8d1qcT')
@@ -40,7 +39,6 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname, command }) => {
     }
     const message = m.reply(`_Cargando menu..._ ${textweb}`)
     await message
-    menu_hit.push(command)
     try {
     let datcov = await fetch('https://latam-api.vercel.app/api/covid19?apikey=nekosmic&q=world');
 	let CovidApi = await datcov.json();
@@ -157,7 +155,7 @@ const defaultMenu = {
 }
 handler.help = ['menu']
 //handler.tags = ['contenido']
-handler.command = /^(menu|comandos|menú|help|\?)$/i
+handler.command = /^(menu|comandos|menú|help)$/i
 
 handler.exp = 5
 

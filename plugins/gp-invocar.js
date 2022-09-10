@@ -7,9 +7,9 @@ let handler = async (m, { conn, groupMetadata, text, participants, isAdmin, isOw
     reacMoji(m.chat, conn, '📢', m)
 }
 
-handler.help = ['invocar', 'todos', 'tagall']
+handler.help = ['invocar']
 handler.tags = ['grupos', 'admins']
-handler.command = /^(invocar)|(todos)|(tagall)$/i
+handler.command = /^(invocar|todos|tagall)$/i
 
 handler.admin = true
 handler.group = true

@@ -7,12 +7,14 @@ let handler = async (m, { conn, command, text, args }) => {
 	let name = await conn.getName(m.sender)
 	let mcarga = m.reply(`_Procesando, ${name} por favor espere..._`)
 	await mcarga
-	let apiytdl = await fetchJson(`https://latam-api.vercel.app/api/ytmp3?apikey=${MyApiKey}&q=${text}`)
-	let thumbapi = await getBuffer(apiytdl.logo)
-conn.sendMessage(m.chat, { audio: { url: apiytdl.descarga }, contextInfo:{"externalAdReply":{"title": `${apiytdl.titulo}`,"body": `${NombreDelBot} 🔥`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumbapi,"sourceUrl": `${apiytdl.descarga}`}}, mimetype: 'audio/mpeg', fileName: `${apiytdl.titulo}.mp3` }, { quoted: m }).catch(e => {
-		console.log(e)
-	conn.sendButton(m.chat, `*[ ! ] Ocurrio un error inesperado u.u [ ! ]*`, `Toque el boton para usar otra alternativa`, NombreDelBot, ['[ ♻️ REINTENTAR ]', Prefijo+`ytabochi ${text}`], m)
-})
+    let yta3 = encodeURIComponent(text)
+try {
+	let apiytdl = await fetchJson(`https://latam-api.vercel.app/api/ytmp3?apikey=${MyApiKey}&q=${yta3}`)
+	let thumbapi = await getBuffer(apiytdl.logo) 
+	conn.sendMessage(m.chat, { audio: { url: apiytdl.descarga }, contextInfo:{"externalAdReply":{"title": `${apiytdl.titulo}`,"body": `${NombreDelBot} 🔥`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumbapi,"sourceUrl": `${apiytdl.descarga}`}}, mimetype: 'audio/mpeg', fileName: `${apiytdl.titulo}.mp3` }, { quoted: m }).catch(e=>{conn.sendButton(m.chat,`*[ ! ] Ocurrio un error inesperado u.u [ ! ]*`,`Toque el boton para usar otra alternativa`,NombreDelBot,['[ ♻️ REINTENTAR ]',Prefijo+`ytabochi ${text}`],m)})
+} catch (e) {
+m.reply(`[ ! ] Error, vuelva a intentarlo mas tarde...`)
+}
 }
 
 handler.help = ['yta <link>']
