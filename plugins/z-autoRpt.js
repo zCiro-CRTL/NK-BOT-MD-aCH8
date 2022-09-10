@@ -17,7 +17,7 @@ handler.all = async function(m, { isAdmin, isBotAdmin }) {
 	let mylogo = fs.readFileSync('./multimedia/imagenes/mylogo.jpg')
 	let rtps1 = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype === 'extendedTextMessage') ? m.message.extendedTextMessage.text : ''
 	let rtps2 = m.text.slice(0).trim().split(/ +/).shift().toLowerCase()
-	let etiqueta = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+	let etiqueta = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? this.user.jid : m.sender
 	let pushname = await this.getName(m.sender)
 	let redes = ['https://youtube.com/channel/UC_Pp8pT9vbT15k5_-i6oseA?sub_confirmation=1', 'https://vm.tiktok.com/ZMLjP4RBS/', 'https://fb.watch/b7LOc9_LU2/', 'https://youtube.com/channel/UC_Pp8pT9vbT15k5_-i6oseA']
 	let reddom = redes[Math.floor(Math.random() * redes.length)]
