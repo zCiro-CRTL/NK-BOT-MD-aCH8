@@ -3,6 +3,7 @@
 **/
 let handler = async (m, { conn, command, text }) => {
 	if (!text) return m.reply(`Que desea buscar en Youtube?, Ejemplo de uso: \n\n${Prefijo + command} mtc s3rl`)
+        let name = await conn.getName(m.sender)
 	let mcarga = m.reply(`_Procesando, ${name} por favor espere..._`)
 	await mcarga
 	let playtext = encodeURIComponent(text)
