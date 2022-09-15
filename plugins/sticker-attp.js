@@ -2,9 +2,9 @@ import webp from 'node-webpmux'
 import { randomBytes } from 'crypto'
 import { addExif } from '../lib/sticker.js'
 
-let handler = async (m, { conn, args, command }) => {
-	if (!args[0]) return m.reply(`Modo de uso:\n\n${Prefijo + command} The life is a party\n`)
-    let attexto = encodeURIComponent(args[0])
+let handler = async (m, { conn, text, command }) => {
+	if (!text) return m.reply(`Modo de uso:\n\n${Prefijo + command} The life is a party\n`)
+    let attexto = encodeURIComponent(text)
     let attp2 = await getBuffer(`https://api.xteam.xyz/attp?file&text=${attexto}`) 
     let stiker = await addExif(attp2, '', `[_>] ${NombreDelBot}\n`) 
     conn.sendMessage(m.chat, {sticker: stiker}, {quoted: m})

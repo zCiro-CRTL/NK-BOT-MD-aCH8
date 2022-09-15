@@ -4,7 +4,7 @@ import { format } from 'util'
 let handler = async (m, { text }) => {
 	if (!/^https?:\/\//.test(text)) return m.reply('El parámetro *URL* debe comenzar con http:// ó https:// -.-')
 	let name = await conn.getName(m.sender)
-	let mcarga = m.reply(`_Procesando, ${name} por favor espere..._`)
+	let mcarga = m.reply(MultiNK.Proces(name))
 	await mcarga
 	let { href: url, origin } = new URL(text)
 	let res = await fetch(url, { headers: { 'referer': origin }})

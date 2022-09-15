@@ -4,7 +4,7 @@
 let handler = async (m, { conn, text, command }) => {
 	if (!text) return m.reply(`Que desea buscar en Youtube?, Ejemplo de uso: \n\n${Prefijo + command} cuanto es 1 + 1`)
 	let name = await conn.getName(m.sender)
-	let mcarga = m.reply(`_Buscando, ${name} por favor espere..._`)
+	let mcarga = m.reply(MultiNK.Bsqd(name))
 	await mcarga
 	let ytstext = encodeURIComponent(text)
 try {
@@ -16,7 +16,7 @@ try {
 	}
 m.reply(teks)
 } catch (e) {
-m.reply(`[ ! ] Error, vuelva a intentarlo mas tarde...`)
+m.reply(MultiNK.Error0())
 }
 }
 

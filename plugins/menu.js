@@ -9,7 +9,6 @@ import * as fs from 'fs'
 let tags = {
   //'contenido': 'Principal',
   'conversor': '_CONVERSORES :_',
-  'utilidad': '_PASATIEMPO :_',
   'animeuwu': '_ANIME :_',
   'casual': '_CMDS-CASUAL :_',
   'propietario': '_CMDS DUEÑO :_',
@@ -23,8 +22,9 @@ let tags = {
   'busqueda': '_BUSQUEDA :_',
   'servicio': '_SERVICIOS :_',
   'xp': '_XP & LIMITE :_',
-  'rpg': '_RPG GAMES :_',
-  '': '_SIN CATEGORÍA :_',
+  'game': '_RPG, JUEGOS :_',
+  'random': '_PASATIEMPO :_',
+  '': '_OTROS :_'
 }
 let handler = async (m, { conn, usedPrefix: _p, __dirname, command }) => {
 	try {
@@ -39,7 +39,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname, command }) => {
     }
     const message = m.reply(`_Cargando menu..._ ${textweb}`)
     await message
-    try {
+    /**try {
     let datcov = await fetch('https://latam-api.vercel.app/api/covid19?apikey=nekosmic&q=world');
 	let CovidApi = await datcov.json();
 	var cotext = `┏「 DATOS - COVID19 」┓
@@ -50,7 +50,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname, command }) => {
 ┗─━─━「 🌎 」━─━─┛\n\n`
     } catch (e) {
     var cotext = ''
-    }
+    }**/
   try {
     let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
     let { exp, limit, level, role } = db.data.users[m.sender]
@@ -119,7 +119,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname, command }) => {
     await conn.sendMessage(m.chat, {
 image: {url: pweb },
 caption: text.trim(),
-footer: cotext+NombreDelBot,
+footer: `\n┏⊱ ${NombreDelBot}\n┗━⊱ ${MultiNK.Habla()} ✓`,
 buttons: [{buttonId: Prefijo+`apoyo`, buttonText: {displayText: "[ APOYO ]"}, type: 1}, {buttonId: Prefijo+`creador`, buttonText: {displayText: "[ CREADOR ]",}, type: 1}, {buttonId: Prefijo+`informacion`, buttonText: {displayText: "[ INFORMACION ]"}, type: 1}],
 headerType: 4,
 ...{ contextInfo: { mentionedJid: [m.sender], externalAdReply: { thumbnail: fs.readFileSync('./multimedia/imagenes/logo.jpg'), sourceUrl: 'https://github.com/NeKosmic/NK-BOT-MD/fork?rgh-fork=true' }}}

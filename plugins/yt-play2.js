@@ -4,7 +4,7 @@
 let handler = async (m, { conn, command, text }) => {
 	if (!text) return m.reply(`Que desea buscar en Youtube?, Ejemplo de uso: \n\n${Prefijo + command} ideas en 5 minutos`)
 	let name = await conn.getName(m.sender)
-	let mcarga = m.reply(`_Procesando, ${name} por favor espere..._`)
+	let mcarga = m.reply(MultiNK.Bsqd(name))
 	await mcarga
 	let playtext = encodeURIComponent(text)
 try {
@@ -31,7 +31,7 @@ headerType: 4
 await conn.sendMessage(m.chat, playboton, { quoted: m })
 reacMoji(m.chat, conn, '📥', m)
 } catch (e) {
-m.reply(`[ ! ] Error, vuelva a intentarlo mas tarde...`)
+m.reply(MultiNK.Error0())
 }
 }
 

@@ -17,7 +17,7 @@ let mime=(q.msg||q).mimetype||q.mediaType||''
 if(/webp|image|video/g.test(mime)){if(/video/g.test(mime))if((q.msg||q).seconds>8)return m.reply(`*[ ! ] Máxima duración de vídeo son 7 segundos!*`)
 let img=await q.download?.()
 if(!img)return m.reply(`*[ ! ] Por favor Envie o Responda un video o una imagen usando el comando ${Prefijo + command}*\n_NOTA : duracion de video 1 a 10 segundos máximo_ ✓`)
-m.reply(`_Procesando, ${name} por favor espere..._`)
+m.reply(MultiNK.Proces(name))
 let out
 try{stiker=await sticker(img,!1,teks1,teks2)
 reacMoji(m.chat,conn,'⚙️',m)}catch(e){console.error(e)}finally{if(!stiker){if(/webp/g.test(mime))out=await webp2png(img)

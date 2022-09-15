@@ -17,7 +17,7 @@ export async function before(m, { conn, isAdmin, isBotAdmin, usedPrefix }) {
             if (m.text.includes(linkThisGroup)) return m.reply('[ ! ] Aea causa acabas de enviar un enlace, lo weno es que el enlace detectado es de este grupo owo')
         }
         if (!isBotAdmin) return conn.sendButton(m.chat, `*[ ! ] Enlace detectado [ ! ]*\n`, `Por suerte no soy acmin, asi que no puedo hacer nada :v`, NombreDelBot, ['[ DESACTIVAR ANTILINK ]', usedPrefix+'apagar antilink'], m)
-        await  conn.sendMessage(m.chat, { text: `*[ ! ] Enlace detectado [ ! ]*\n_Ahora si k_gaste @${m.sender.split("@")[0]} Adios..._\n`, mentions: [m.sender] }, { quoted: m }) 
+        await  conn.sendMessage(m.chat, { text: `*[ ! ] Enlace detectado [ ! ]*\n_Ahora si k_gaste @${m.sender.split("@")[0]} Adios..._\n`, mentions: [m.sender] }) 
         conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: yid, participant: prt }})
 setTimeout(() => { 
 	conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')

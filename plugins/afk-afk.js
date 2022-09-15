@@ -14,7 +14,7 @@ let handler = async (m, { text, conn }) => {
 }
 
 handler.help = ['afk [razon]']
-handler.tags = ['utilidad']
+handler.tags = ['casual']
 handler.command = /^afk$/i
 
 export default handler
