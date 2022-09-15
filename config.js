@@ -4,6 +4,7 @@
 import { watchFile, unwatchFile } from 'fs'
 import chalk from 'chalk'
 import { fileURLToPath } from 'url'
+import { en, es } from './lib/lenguajes/nexo.js'
 
 //Metodo para cargar archivos con ESModules en Node.js
 import { createRequire } from 'module'
@@ -12,11 +13,11 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const require = createRequire(__dirname)
 const dPkg = require(join(__dirname, './package.json'))
 //
-
+global.MultiNK = es; //Lenguaje nativo
 global.Propietario = dPkg.author.name
 global.OwnerNum = '51995386439'
 global.PaisPrefix = '51'
-global.Prefijo = '/'
+global.Prefijo = '.'
 global.MyApiKey = 'nekosmic' //zzz
 global.NombreDelBot = 'NK-BOT' //vMD
 global.BotVersion = dPkg.version
@@ -89,7 +90,6 @@ global.rpg = {
 return role.reverse().find(role => level >= role.level)
 }
 }
-
 
 let file = fileURLToPath(import.meta.url)
 watchFile(file, () => {
