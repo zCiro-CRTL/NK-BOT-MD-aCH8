@@ -19,7 +19,7 @@ let handler = async (m, { conn, args }) => {
 }
 }
 
-handler.help = ['ytvbochi <link>']
+handler.help = ['ytabochi <link>']
 handler.tags = ['servicio']
 handler.command = /^(ytabochi)$/i
 
